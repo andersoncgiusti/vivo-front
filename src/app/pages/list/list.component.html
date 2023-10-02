@@ -1,0 +1,142 @@
+<div class="title">
+  <h1>Lista</h1>
+</div>
+
+<div class="accordion-container">
+  <mat-accordion>
+    <mat-expansion-panel
+      (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false"
+      class="small-panel">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Adicionar saldo
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+        <mat-form-field appearance="fill" class="custom-form-field">
+          <mat-label>Novo saldo</mat-label>
+          <input
+          matInput
+          placeholder="R$ 100,00"
+          type="number"
+          [(ngModel)]="valueInput">
+        </mat-form-field>
+
+        <mat-action-row>
+          <button
+          mat-button
+          (click)="prevStep()">
+            Cancelar
+          </button>
+          <button
+          class="adicionar"
+          mat-button
+          (click)="nextStep();"
+          [disabled]="disableValue()">
+            Adicionar
+          </button>
+        </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
+<div class="accordion-container">
+  <mat-accordion>
+    <mat-expansion-panel
+      (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false"
+      class="small-panel">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Saldo disponível
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div>
+        <h2 [ngClass]="{ 'block':total >= 0, 'none':total <= 0 }">{{ total | currency }}</h2>
+        <h2 class="devedor" [ngClass]="{ 'block':total <= 0, 'none':total >= 0 }">{{ total | currency }}</h2>
+        <mat-divider></mat-divider>
+        <p class="extrato" (click)="extratoBalance();">Extrato entradas completo</p>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
+<div class="accordion-container">
+  <mat-accordion>
+    <mat-expansion-panel
+      (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false"
+      class="small-panel">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Adicionar gastos
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+        <mat-form-field appearance="fill" class="custom-form-field">
+          <mat-label>Descrição</mat-label>
+          <input
+          matInput
+          placeholder="Mercado"
+          type="text"
+          [(ngModel)]="descriptionInput">
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="custom-form-field space">
+          <mat-label>Valor</mat-label>
+          <input
+          matInput
+          placeholder="R$ 100,00"
+          type="number"
+          [(ngModel)]="valueInput">
+        </mat-form-field>
+
+        <div>
+          <p class="extrato" (click)="extrato();">Extrato saídas completo</p>
+        </div>
+
+        <mat-action-row>
+          <button
+          mat-button
+          (click)="prevStep()">
+            Cancelar
+          </button>
+          <button
+          class="adicionar"
+          mat-button
+          (click)="createList();"
+          [disabled]="disable()">
+            Adicionar
+          </button>
+        </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
+<div>
+  <h1 class="-extrato">Últimas movimentações</h1>
+</div>
+
+<div *ngIf="not === 0">
+  <h3 class="-extrato">Sem movimentações</h3>
+</div>
+
+<div class="table" *ngIf="not >= 2">
+  <table mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="data">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Data </th>
+      <td mat-cell *matCellDef="let row"> {{ row.data | date: 'dd-MM-yyyy' }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="descricao">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Descrição </th>
+      <td mat-cell *matCellDef="let row"> {{ row.descricao }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="valor">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Valor </th>
+      <td mat-cell *matCellDef="let row"> {{ row.valor | currency }} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

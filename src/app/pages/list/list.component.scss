@@ -1,0 +1,90 @@
+$color: #660099;
+
+.small-panel, mat-list {
+  width: 600px;
+  margin: auto;
+}
+
+.title {
+  padding: 20px;
+  color: $color;
+}
+
+table {
+  width: 600px;
+  margin: auto !important;
+  cursor: pointer;
+}
+
+mat-spinner, .error-pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.extrato {
+  margin-top: 20px;
+  color: $color;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.-extrato {
+  margin-top: 20px;
+  color: $color;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.space {
+  margin-left: 10px;
+}
+
+.accordion-container {
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
+}
+
+.adicionar {
+  background-color:  $color !important;
+  color: white !important;
+}
+
+mat-form-field {
+  border-color: $color !important;
+}
+
+mat-label {
+  color: $color !important;
+}
+
+::ng-deep .custom-form-field.mat-form-field-appearance-fill .mat-form-field-label {
+  color: $color;
+}
+
+::ng-deep .custom-form-field.mat-form-field-appearance-fill .mat-form-field-ripple {
+  color: $color;
+  background-color: $color;
+}
+
+::ng-deep .mat-progress-bar-primary .mat-progress-bar-fill::before {
+  background-color: $color;
+}
+
+.devedor {
+  color: red;
+}
+
+.block {
+  display: block !important;
+}
+
+.none {
+  display: none !important;
+}

@@ -1,0 +1,41 @@
+<h1
+  mat-dialog-title
+  class="center-content">
+  Atualizar
+  </h1>
+<div
+  mat-dialog-content
+  class="center-content middle-content">
+  Tem certeza que deseja atualizar?
+</div>
+<mat-form-field
+  appearance="fill"
+  class="custom-form-field">
+  <mat-label>Valor</mat-label>
+  <input
+    matInput
+    [(ngModel)]="valueInput"
+    [ngModelOptions]="{standalone: true}"
+    (focus)="onValueFocus()"
+    (blur)="onValueBlur()"
+    placeholder="R$ 100,00"
+    type="number">
+</mat-form-field>
+<div
+  mat-dialog-actions
+  class="center-content">
+  <button
+    mat-button
+    mat-dialog-close>
+    Não
+  </button>
+  <button
+    class="confirmar"
+    mat-button
+    mat-dialog-close
+    cdkFocusInitial
+    (click)="updatedList(id);"
+    >
+    Sim
+  </button>
+</div>

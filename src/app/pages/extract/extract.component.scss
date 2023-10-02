@@ -1,0 +1,84 @@
+$color: #660099;
+
+.title {
+  padding: 20px;
+  color: $color;
+}
+
+.table-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+table {
+  width: 600px;
+  margin: auto !important;
+  cursor: pointer;
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 25%;
+}
+
+.extrato {
+  margin-top: 20px;
+  color: $color;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+mat-form-field {
+  border-color: $color !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+mat-form-field > {
+  width: 600px !important;
+}
+
+mat-label {
+  color: $color !important;
+}
+
+::ng-deep .custom-form-field.mat-form-field-appearance-fill .mat-form-field-label {
+  color: $color;
+}
+
+::ng-deep .custom-form-field.mat-form-field-appearance-fill .mat-form-field-ripple {
+  color: $color;
+  background-color: $color;
+}
+
+.custom-width {
+  width: 25px !important;
+}
+
+.devedor {
+  color: red;
+}
+
+.block {
+  display: block !important;
+}
+
+.none {
+  display: none !important;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+

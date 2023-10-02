@@ -1,0 +1,35 @@
+$color: #660099;
+
+button {
+  margin-right: 8px;
+}
+
+.confirmar {
+  color: $color !important;
+}
+
+.center-content {
+  display: flex;
+  justify-content: center;
+}
+
+.middle-content {
+  align-items: center;
+}
+
+mat-form-field {
+  border-color: $color !important;
+}
+
+mat-label {
+  color: $color !important;
+}
+
+::ng-deep .custom-form-field.mat-form-field-appearance-fill .mat-form-field-label {
+  color: $color;
+}
+
+::ng-deep .custom-form-field.mat-form-field-appearance-fill .mat-form-field-ripple {
+  color: $color;
+  background-color: $color;
+}

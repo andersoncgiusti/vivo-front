@@ -1,0 +1,53 @@
+<div class="title">
+  <h1>Extrato completo</h1>
+</div>
+
+<div class="extrato">
+  <h1 [ngClass]="{ 'block':total >= 0, 'none':total <= 0 }">Gasto total {{ total | currency }}</h1>
+  <h1 class="devedor" [ngClass]="{ 'block':total <= 0, 'none':total >= 0 }">Gasto total {{ total | currency }}</h1>
+</div>
+
+<div>
+  <h1 class="extrato">Todas movimentações</h1>
+</div>
+
+<div *ngIf="not === 0">
+  <h3 class="extrato">Sem movimentações</h3>
+</div>
+
+<div class="table" *ngIf="not >= 2">
+  <table mat-table [dataSource]="dataSource" matSort>
+
+    <ng-container matColumnDef="data">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Data </th>
+      <td mat-cell *matCellDef="let row"> {{ row.data | date: 'dd-MM-yyyy' }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="descricao">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Descrição </th>
+      <td mat-cell *matCellDef="let row"> {{ row.descricao }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="valor">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Valor </th>
+      <td mat-cell *matCellDef="let row"> {{ row.valor | currency }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="atualizar">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="custom-width"> Atualizar </th>
+      <td mat-cell *matCellDef="let row" class="custom-width">
+        <mat-icon (click)="openDialogUpdated(row.id, row.descricao, row.valor)">update</mat-icon>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="excluir">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="custom-width"> Excluir </th>
+      <td mat-cell *matCellDef="let row" class="custom-width">
+        <mat-icon (click)="openDialogDelete(row.id)">delete_sweep</mat-icon>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

@@ -1,0 +1,18 @@
+$color: #660099;
+
+button {
+  margin-right: 8px;
+}
+
+.confirmar {
+  color: $color !important;
+}
+
+.center-content {
+  display: flex;
+  justify-content: center;
+}
+
+.middle-content {
+  align-items: center;
+}
