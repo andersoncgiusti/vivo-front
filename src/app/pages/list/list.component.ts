@@ -33,6 +33,7 @@ export class ListComponent implements OnInit {
   result             : any[] = [];
   descriptionInput   : string = '';
   valueInput         : number | any;
+  valuesInput         : number | any;
   dataSourceTotal    : any;
   total              : any;
   not                : any;
@@ -60,7 +61,7 @@ export class ListComponent implements OnInit {
   nextStep() {
     this.step++;
     const balance: Balance = {
-      value: this.valueInput,
+      value: this.valuesInput,
     };
     this.balanceService.createBalance(balance)
     .subscribe((response: any) => {
@@ -90,7 +91,7 @@ export class ListComponent implements OnInit {
   }
 
   clear() {
-    this.valueInput = '';
+    this.valuesInput = '';
   }
 
   clearAll() {
