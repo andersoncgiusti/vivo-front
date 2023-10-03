@@ -1,5 +1,24 @@
 # VivoFront
 
+## Bibliotecas utilizadas 
+1. **Angular Material:** É uma biblioteca de design e componentes de interface do usuário (UI) desenvolvida especificamente para o framework Angular. Ela oferece um conjunto de recursos prontos para uso que facilitam a criação de interfaces de usuário atraentes e funcionais em aplicativos da web desenvolvidos com o Angular.
+
+## Running
+
+```sh
+# Clone o repositório 
+git clone 
+
+# Entre na pasta 
+cd vivo-front
+
+# Instale as dependências user a versão 18 do Node.js
+npm install
+
+# Inicie  
+npm start
+```
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.12.
 
 ## Development server
